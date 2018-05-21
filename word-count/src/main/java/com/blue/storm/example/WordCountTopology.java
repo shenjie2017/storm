@@ -59,10 +59,12 @@ public class WordCountTopology {
         config.setNumWorkers(3);
 
         //3.提交任务    --本地模式和集群模式
-//        StormSubmitter.submitTopology("MyWordCount",config,builder.createTopology());
+        //集群模式
+        StormSubmitter.submitTopology("MyWordCount",config,builder.createTopology());
 
-        LocalCluster localCluster = new LocalCluster();
-        localCluster.submitTopology("MyWordCount",config,builder.createTopology());
+        //本地模式
+//        LocalCluster localCluster = new LocalCluster();
+//        localCluster.submitTopology("MyWordCount",config,builder.createTopology());
 
     }
 
