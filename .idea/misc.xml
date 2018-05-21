@@ -12,7 +12,11 @@
       </map>
     </option>
   </component>
-  <component name="ProjectDictionaryState">
-    <dictionary name="develop" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/word-count/pom.xml" />
+      </list>
+    </option>
   </component>
 </project>
