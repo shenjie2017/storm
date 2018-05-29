@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/flume-kafka-storm/flume-kafka-storm.iml" filepath="$PROJECT_DIR$/flume-kafka-storm/flume-kafka-storm.iml" />
       <module fileurl="file://$PROJECT_DIR$/word-count/word-count.iml" filepath="$PROJECT_DIR$/word-count/word-count.iml" />
     </modules>
   </component>

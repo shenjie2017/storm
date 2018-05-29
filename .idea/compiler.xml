@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="word-count" />
+        <module name="flume-kafka-storm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="flume+kafka+storm" target="1.5" />
+      <module name="flume-kafka-storm" target="1.5" />
       <module name="word-count" target="1.5" />
     </bytecodeTargetLevel>
   </component>
