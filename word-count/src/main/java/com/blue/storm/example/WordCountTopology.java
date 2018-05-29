@@ -56,15 +56,18 @@ public class WordCountTopology {
 
         //2.创建Config,用来指定Topology需要的worker数量
         Config config = new Config();
+        config.setDebug(true);
         config.setNumWorkers(3);
 
         //3.提交任务    --本地模式和集群模式
-        //集群模式
-//        StormSubmitter.submitTopology("MyWordCount",config,builder.createTopology());
-
-        //本地模式
-        LocalCluster localCluster = new LocalCluster();
-        localCluster.submitTopology("MyWordCount",config,builder.createTopology());
+        if (args!=null && args.length>0) {
+            //集群模式
+            StormSubmitter.submitTopology(args[0], config, builder.createTopology());
+        }else {
+            //本地模式
+            LocalCluster localCluster = new LocalCluster();
+            localCluster.submitTopology("MyWordCount", config, builder.createTopology());
+        }
 
     }
 
@@ -128,14 +131,13 @@ public class WordCountTopology {
 //            Integer num = input.getInteger(1);
             Integer num = (Integer) input.getValueByField(new Fields("num").get(0));
 
-            System.out.println("thread name:"+Thread.currentThread().getName()+"\t"+"word:"+word);
-
             if(map.containsKey(word)){
                 map.put(word,map.get(word)+1);
             }else{
                 map.put(word,1);
             }
 
+            System.out.println("thread name:"+Thread.currentThread().getName()+"\t"+"word:"+word +"\t"+"count:"+map.get(word));
 //            System.out.println("time:"+System.currentTimeMillis() +"\t" + "word:"+word+"\t"+"count:"+map.get(word));
         }
 
