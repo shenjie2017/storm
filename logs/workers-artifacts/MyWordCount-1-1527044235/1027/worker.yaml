@@ -1,0 +1,4 @@
+worker-id: d5db1c0b-60a9-4fdb-8ada-fb068187cf3e
+logs.users: []
+logs.groups: []
+topology.submitter.user: develop

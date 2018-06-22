@@ -10,7 +10,10 @@ import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.kafka.KafkaSpout;
 import org.apache.storm.kafka.SpoutConfig;
 import org.apache.storm.kafka.ZkHosts;
+import org.apache.storm.shade.org.json.simple.JSONObject;
 import org.apache.storm.topology.TopologyBuilder;
+
+import java.util.HashMap;
 
 /**
  * @author shenjie
@@ -40,6 +43,7 @@ import org.apache.storm.topology.TopologyBuilder;
 public class KafkaAndStormTopologyMain {
 
     public static void main(String[] args) throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
+
         TopologyBuilder builder = new TopologyBuilder();
         SpoutConfig config = new SpoutConfig(new ZkHosts("192.168.163.111:2181"),"orderMq","/mykafka","kafkaSpout");
         builder.setSpout("kafkaSpout",new KafkaSpout(config),1);

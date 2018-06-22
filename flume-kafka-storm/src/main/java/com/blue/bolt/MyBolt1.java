@@ -37,7 +37,10 @@ import java.util.Map;
 //          ┗━┻━┛   ┗━┻━┛
 
 public class MyBolt1 extends BaseRichBolt {
+    OutputCollector collector;
+
     public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
+        this.collector = collector;
 
     }
 
@@ -45,6 +48,8 @@ public class MyBolt1 extends BaseRichBolt {
         byte[] value = (byte[]) input.getValue(0);
         String msg = new String(value);
         System.out.println("thread-id:"+Thread.currentThread().getId()+" msg:"+msg);
+
+        collector.ack(input);
     }
 
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
